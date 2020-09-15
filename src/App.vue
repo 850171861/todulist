@@ -1,32 +1,40 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+<el-container>
+  <el-header><todo-header></todo-header></el-header>
+  <el-container>
+    <el-aside><todo-sidebar></todo-sidebar></el-aside>
+    <el-main><router-view/></el-main>
+  </el-container>
+</el-container>
   </div>
 </template>
 
+<script>
+import header from './components/Header'
+import sidebar from './components/Sidebar'
+
+export default {
+  components:{
+    'todo-header' : header,
+    'todo-sidebar' : sidebar
+    }
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+#app{
+  height: 100%;
 }
-
-#nav {
-  padding: 30px;
+.el-aside{
+  width: 200px !important;
+  height: 100%;
+  position: fixed;
+  top: 72px;
+  left: 28px;
+  overflow: hidden !important;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.el-main{
+  margin-left: 200px;
 }
 </style>
