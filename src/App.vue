@@ -37,4 +37,7 @@ export default {
 .el-main{
   margin-left: 200px;
 }
+.pl-10{
+   padding-left: 10px;
+}
 </style>
